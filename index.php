@@ -37,7 +37,7 @@
 </head>
 <body>
     <div class="container-fluid bg-light p-5 text-center my-3">
-        <h1 class="">Covid-19 Tracker - Testing Once Again</h1>
+        <h1 class="">Covid-19 Tracker - Testing Once Again Again</h1>
         <h5 class="text-muted">An opensource project to keep track of all the COVID-19 cases around the world.</h5>
     </div>
 
