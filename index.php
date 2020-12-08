@@ -1,108 +1,168 @@
-<?php
-
-    include 'logic.php';
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-
-    <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/996973c893.js" crossorigin="anonymous"></script>
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+Thambi+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- My Stylesheet -->
-    <link rel="stylesheet" href="style.css">
-
-    <!-- My jQuery -->
-    <script src="main.js"></script>
-
-    <!-- Chart.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-
-    <title>Covid-19 Tracker</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon.png">
+    <link rel="stylesheet" href="assets/css/pace.css">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>[⍋] CÑÑ CHECKER</title>
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600%7CRoboto:400" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+    
+    <!-- Head Libs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script data-pace-options='{ "ajax": false, "selectors": [ "img" ]}' src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>
+    <script>
+var myVar=setInterval(function(){myTimer()},1000);
+function myTimer() {
+    var d = new Date();
+    document.getElementById("horas").innerHTML = d.toLocaleTimeString();
+}
+</script>
+<script type="text/javascript">
+function Mudaestado(el) {
+        var display = document.getElementById(el).style.display;
+        if(display == "none")
+            document.getElementById(el).style.display = 'block';
+        else
+            document.getElementById(el).style.display = 'none';
+    }
+</script>
 </head>
-<body>
-    <div class="container-fluid bg-light p-5 text-center my-3">
-        <h1 class="">Covid-19 Tracker</h1>
-        <h5 class="text-muted">An opensource project to keep track of all the COVID-19 cases around the world.</h5>
-    </div>
 
-    <div class="container my-5">
-        <div class="row text-center">
-            <div class="col-4 text-warning">
-                <h5>Confirmed</h5>
-                <?php echo $total_confirmed;?>
+<body class="content-dark">
+        <!-- /.site-sidebar -->
+        <main class="main-wrapper clearfix">
+            <!-- Page Title Area -->
+            <div class="row page-title clearfix">
+                <div class="page-title-left">
+                    <h6 class="page-title-heading mr-0 mr-r-5"><strong>† NôôB Mãn CCN  †</strong></h6>
+                    <p class="page-title-description mr-0 d-none d-md-inline-block"></p>
+                </div>
+                <!-- /.page-title-left -->
+                
+                <!-- /.page-title-right -->
             </div>
-            <div class="col-4 text-success">
-                <h5>Recovered</h5>
-                <?php echo $total_recovered;?>
+            <!-- /.page-title -->
+            <!-- =================================== -->
+            <!-- Different data widgets ============ -->
+            <!-- =================================== -->
+            <div class="widget-list row">
+                
+                <!-- /.widget-holder -->
+                <div class="widget-holder widget-full-height widget-flex col-lg-6">
+                    <div class="widget-bg">
+                        <div class="widget-heading">
+                            <h5 class="widget-title">RESPONSE TAB  </h5>
+                            <div class="widget-graph-info">
+                                <div class="dropdown"><a href="javascript:void(0)" class="dropdown-toggle text-muted fs-16" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#">Action</a>  <a class="dropdown-item" href="#">Another action</a>  <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.widget-graph-info -->
+                        </div>
+                        <!-- /.widget-heading -->
+                        <div class="widget-body">
+                            <button type="button" id="sh_apr" onclick="Mudaestado('aprovadasapp');" class="btn btn-success" style="background-image: linear-gradient(45deg, #9000ff, #0069d4);border-color: #ffffff;">APPROVED [ <span id="aprovada_conta">0</span> ]</button>
+
+                            <br>
+
+                            <p id="aprovadasapp"></p>
+
+                            <br><br>
+
+                            <button type="button" id="sh_rep" onclick="Mudaestado('reprovadasapp');" class="btn btn-danger"  style="background-image: linear-gradient(45deg, #fc9210, #dd2222);border-color: #ffffff;">DECLINED [ <span id="reprovada_conta">0</span> ]</button>
+
+                            <br>
+
+                            <p id="reprovadasapp"></p>
+                        </div>
+                        <!-- /.widget-body -->
+                    </div>
+                    <!-- /.widget-bg -->
+                </div>
+                <!-- /.widget-holder -->
+                <div class="widget-holder widget-full-content widget-full-height col-lg-6">
+                    <div class="widget-bg">
+                        <div class="widget-heading">
+                            <h5 class="widget-title">FILL IN THE INFORMATION.</h5>
+                            <div class="widget-graph-info">
+                                <div class="dropdown"><a href="javascript:void(0)" class="dropdown-toggle text-muted fs-16" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#">Action</a>  <a class="dropdown-item" href="#">Another action</a>  <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.widget-graph-info -->
+                        </div>
+                        <!-- .widget-heading -->
+                        <div class="widget-body">
+                            <div class="container-fluid pd-20">
+                                <div class="row">
+                                    <div class="col">
+                                        
+
+                                    <textarea id="lista" placeholder="FORMAT: 0000000000000000|00|0000|000" class="form-control" style="resize:yes;outline:none;width:200; height:150px;"></textarea><br>
+
+                                    <button type="button" id="iniciar"  onclick="start()" class="btn btn-success" style="background-image: linear-gradient(45deg, #9000ff, #0069d4);border-color: #ffffff;">Start</button> 
+                                    <button type="button" onclick="stop()" id="parar" class="btn btn-danger" style="background-image: linear-gradient(45deg, #fc9210, #dd2222);border-color: #ffffff;" >Stop</button>
+
+                                    <br><br>
+
+                                    <small>STATUS: <span class="bagde badge-pill badge-primary" id="demo">WAITING FOR BEGINNING</span> - 
+                                    APPROVED: <span id="CLIVE" class="badge badge-success">0</span> - 
+                                    DECLINED: <span id="CDIE" class="badge badge-danger">0</span> - 
+                                    TESTED: <span id="testado" class="badge badge-warning">0</span> - 
+                                    TOTAL: <span id="carregada" class="badge badge-info">0</span></small>
+
+                                    <br><br>
+
+                                    Time: <span class="badge badge-primary" id="horas">NULL</span>
+
+                                    <br><br>
+
+                                    <p>Edited By :  <a target="_BLANK" href="https://telegram.me/NOOBMAN5" span class="bagde badge-pill badge-yellow" >
+                                    NOOB MAN♛</a></p>
+
+
+                                            <!-- /.col-6 -->
+                                    </div>
+                                        <!-- /.row -->
+                                    </div>
+                                    <!-- /.col-lg-6 -->
+                                </div>
+                                <!-- /.row -->
+                            </div>
+                            <!-- /.container-fluid -->
+                        </div>
+                        <!-- /.widget-body -->
+                    </div>
+                    <!-- /.widget-bg -->
+                </div>
+                <!-- /.widget-holder -->
             </div>
-            <div class="col-4 text-danger">
-                <h5>Deceased</h5>
-                <?php echo $total_deaths;?>
+            <!-- /.widget-list -->
             </div>
+            <!-- /.card -->
         </div>
+        <!-- /.chat-panel -->
     </div>
-
-    <div class="container bg-light p-3 my-5 text-center">
-        <h5 class="text-info">"Prevention is the Cure."</h5>
-        <p class="text-muted">Stay Indoors Stay Safe.</p>
+    <!-- /.content-wrapper -->
+    <!-- FOOTER -->
     </div>
-
-    <canvas id="myChart"></canvas>
-
-    <div class="container-fluid">
-        <div class="table-responsive">
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">Countries</th>
-                        <th scope="col">Confirmed</th>
-                        <th scope="col">Recovered</th>
-                        <th scope="col">Deceased</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                        foreach($data as $key => $value){
-                            $increase = $value[$days_count]['confirmed'] - $value[$days_count_prev]['confirmed'];
-                    ?>
-                        <tr>
-                            <th scope="row"><?php echo $key?></th>
-                            <td>
-                                <?php echo $value[$days_count]['confirmed'];?>
-                                <?php if($increase != 0){ ?>
-                                    <small class="text-danger pl-3"><i class="fas fa-arrow-up"></i><?php echo $increase;?></small>  
-                                <?php } ?>    
-                            </td>
-                            <td><?php echo $value[$days_count]['recovered'];?></td>
-                            <td><?php echo $value[$days_count]['deaths'];?></td>
-                        </tr>
-                    <?php }?>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <footer class="footer mt-auto py-3 bg-light">
-        <div class="container text-center">
-            <span class="text-muted">Copyright &copy;2020, <a href="https://packetcode.in" target="_blank">Packetcode</a></span>
-        </div>
-    </footer>
-
+    <!--/ #wrapper -->
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script src="js.js"></script>
 </body>
+
 </html>
